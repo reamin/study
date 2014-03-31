@@ -43,6 +43,8 @@ int main(){
 			break;
 		default:
 			cout << "연산자가 잘못 되었습니다." << endl;
+
+
 		}
 	}
 }
