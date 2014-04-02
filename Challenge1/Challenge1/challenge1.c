@@ -10,22 +10,20 @@ int main(void){
 
 	multiple(i, j);
 
+
 }
 
 int multiple(int a, int b){
 
 	if (a <= b){
-		for (int i = a; i <= b; i++){
-			for (int j = 1; j <= 9; j++){
-				printf("%d * %d = %d\n", i, j, i * j);
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+
+	for (int i = a; i <= b; i++){
+		for (int j = 1; j <= 9; j++){
+			printf("%d * %d = %d\n", i, j, i * j);
 			}
 		}
-	}
-	else{
-		for (int i = b; i <= a; i++){
-			for (int j = 1; j <= 9; j++){
-				printf("%d * %d = %d\n", i, j, i * j);
-			}
-		}
-	}
 }
