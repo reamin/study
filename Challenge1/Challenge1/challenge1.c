@@ -9,9 +9,9 @@ int main(void){
 	scanf("%d %d", &i, &j);
 
 	if (i > j){
-		int temp = i;
-		i = j;
-		j = temp;
+		i = i ^ j, printf("%d\n", i);
+		j = j ^ i, printf("%d\n", j);
+		i = i ^ j, printf("%d\n", i);
 	}
 	
 	multiple(i, j);
