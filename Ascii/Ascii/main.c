@@ -19,7 +19,7 @@ int main(void){
 		printf("A");
 		key = getch();
 		move_arrow_key(key,&x, &y, X_MAX, Y_MAX);
-	} while (key != 27);
+	} while (key != 27); // key의 값이 ESC(아스키코드 27)일때 와일문 탈출
 	
 	return 0;
 }
