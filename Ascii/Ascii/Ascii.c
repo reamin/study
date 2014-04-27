@@ -11,8 +11,8 @@ void move_arrow_key(char chr, int *x1, int *y1, int x_b, int y_b);
 void gotoxy(int x, int y);
 
 int main(void){
-	char key; 
-	int x = 10, y = 5;  
+	char key;
+	int x = 10, y = 5; // A를 출력할 초기 좌표  
 	
 	do{
 		gotoxy(x, y); 
@@ -23,6 +23,7 @@ int main(void){
 	
 	return 0;
 }
+
 void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b){
 	switch (key) {
 		case 72: //위쪽(상) 방향의 화살표 키 입력  
