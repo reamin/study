@@ -10,14 +10,14 @@ void gotoxy(int x, int y);
 
 int main(void){
 	char key;
-	int x = 10, y = 5;
+	int x = 10, y = 5; // 처음 A를 출력하게 될 좌표
 
 	do{
-		gotoxy(x, y);
-		printf("A");
-		key = getch();
-		move_arrow_key(key, &x, &y, X_MAX, Y_MAX);
-	} while (key != 27);
+		gotoxy(x, y); // gotoxy함수 실행, 프롬프트를 x,y 위치로 이동
+		printf("A"); // 해당위치에서 A를 출력함
+		key = getch(); // getch()함수를 통해 키보드 입력을 받고, 해당키를 key변수에 대입
+		move_arrow_key(key, &x, &y, X_MAX, Y_MAX); // move_arrow_key함수 실행, 위에서 입력된 key에 따라 해당문 실행
+	} while (key != 27); // key의 값이 ESC(아스키코드 27)일때 와일문 탈출
 
 	return 0;
 }
