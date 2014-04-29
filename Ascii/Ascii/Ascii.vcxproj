@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="scana.c" />
+    <ClCompile Include="source.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CD49EDB6-9699-46BF-95F0-28ED6A6D328E}</ProjectGuid>
