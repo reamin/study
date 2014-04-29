@@ -1,6 +1,3 @@
-//문자A를 초기좌표(10,5)에 출력
-//화살표 이동에 따라 A를 계속해서 출력
-//ESC입력시 종료
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
