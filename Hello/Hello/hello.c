@@ -1,54 +1,82 @@
-#include <stdio.h>
-#include <conio.h>
-#include <windows.h>
-#define X_MAX 79 //열 최대값
-#define Y_MAX 24 //향 최대값
-
-void move_arrow_key(char chr, int *x1, int *y1, int x_b, int y_b);
+#include <stdio.h>
+#include <windows.h>
+void draw_check02(int c, int r);
 void gotoxy(int x, int y);
+void move_draw(int num);
 
 int main(void){
-	char key;
-	int x = 10, y = 5; // A를 출력할 초기 좌표  
-
-	do{
-		gotoxy(x, y);
-		printf("A");
-		key = getch();
-		move_arrow_key(key, &x, &y, X_MAX, Y_MAX);
-	} while (key != 27); // key의 값이 ESC(아스키코드 27)일때 와일문 탈출
-
+	
+	draw_check02(5, 5);
+	move_draw(5);
+	printf("\n\n");
 	return 0;
-}
 
-void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b){
-	switch (key) {
-	case 72: //위쪽(상) 방향의 화살표 키 입력  
-		*y1 = *y1 - 1;
-		if (*y1 < 1)
-			*y1 = 1; // y좌표의 최소값   
-		break;
-	case 75: //왼쪽(좌) 방향의 화살표 키 입력  
-		*x1 = *x1 - 1;
-		if (*x1 < 1)
-			*x1 = 1; // x좌표의 최소값   
-		break;
-	case 77: //오른쪽(우) 방향의 화살표 키 입력  
-		*x1 = *x1 + 1;
-		if (*x1 > x_b)
-			*x1 = x_b; // x좌표의 최대값   
-		break;
-	case 80: //아래쪽(하) 방향의 화살표 키 입력  
-		*y1 = *y1 + 1;
-		if (*y1 > y_b)
-			*y1 = y_b; // y좌표의 최대값   
-		break;
-	default:
-		return;
+}
+void move_draw(int num){
+	int i, j;
+	int a = 1;
+
+	for (i = 1; i <= num; i++){
+		for (j = 1; j <= num; j++){
+			gotoxy(j * 4 - 1, i * 2);
+			printf("%2d", a);
+			a++;
+		}
 	}
+
+}
+void draw_check02(int c, int r){
+	int i, j;
+	unsigned char a = 0xa6;
+	unsigned char b[12];
+
+	for (i = 1; i < 12; i++)
+		b[i] = 0xa0 + i;
+
+	printf("%c%c", a, b[3]);
+	for (i = 0; i < c - 1; i++){
+		printf("%c%c", a, b[1]);
+		printf("%c%c", a, b[8]);
+	}
+	printf("%c%c", a, b[1]);
+	printf("%c%c", a, b[4]);
+	printf("\n");
+
+	for (i = 0; i < r - 1; i++){
+		printf("%c%c", a, b[2]);
+		for (j = 0; j < c; j++){
+			printf("  ");
+			printf("%c%c", a, b[2]);
+		}
+		printf("\n");
+
+		printf("%c%c", a, b[7]);
+		for (j = 0; j < c - 1; j++){
+			printf("%c%c", a, b[1]);
+			printf("%c%c", a, b[11]);
+		}
+		printf("%c%c", a, b[1]);
+		printf("%c%c", a, b[9]);
+		printf("\n");
+	}
+
+	printf("%c%c", a, b[2]);
+	for (j = 0; j < c; j++){
+		printf("  ");
+		printf("%c%c", a, b[2]);
+	}
+	printf("\n");
+	printf("%c%c", a, b[6]);
+	for (i = 0; i < c - 1; i++){
+		printf("%c%c", a, b[1]);
+		printf("%c%c", a, b[10]);
+	}
+	printf("%c%c", a, b[1]);
+	printf("%c%c", a, b[5]);
+	printf("\n");
 }
 
-void gotoxy(int x, int y){// x=가로위치, y=세로위치 	
+void gotoxy(int x, int y){
 	COORD Pos = { x - 1, y - 1 };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
