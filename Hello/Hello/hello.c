@@ -14,13 +14,13 @@ int main(void){
 }
 void move_draw(int num){
 	int i, j;
-	int a = 1;
+	//int a = 1;
 
-	for (i = 1; i <= num; i++){
+	for (i = 0; i < num; i++){
 		for (j = 1; j <= num; j++){
-			gotoxy(j * 4 - 1, i * 2);
-			printf("%2d", a);
-			a++;
+			gotoxy(j * 4 - 1, i * 2 + 2);
+			printf("%2d", i * 5 + j);
+			//a++;
 		}
 	}
 
